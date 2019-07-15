@@ -40,14 +40,14 @@ class ExploreViewController: BaseSegementSlideViewController {
     }
     
     override var titlesInSwitcher: [String] {
-        return DataManager.shared.exploreLanguageTitles
+        return ["全部", "打卡", "活动", "讨论", "调查", "通知"]//DataManager.shared.exploreLanguageTitles
     }
     
     override func showBadgeInSwitcher(at index: Int) -> BadgeType {
         if let badge = badges[index] {
             return badge
         } else {
-            let badge = BadgeType.random
+            let badge = index == 1 ? BadgeType.richTextNewMark : .none
             badges[index] = badge
             return badge
         }
@@ -57,8 +57,8 @@ class ExploreViewController: BaseSegementSlideViewController {
         let viewController = ContentViewController()
         viewController.refreshHandler = { [weak self] in
             guard let self = self else { return }
-            self.badges[index] = BadgeType.random
-            self.reloadBadgeInSwitcher()
+//            self.badges[index] = (index % 2) == 0 ? BadgeType.richTextNewMark : .none //BadgeType.random
+//            self.reloadBadgeInSwitcher()
         }
         return viewController
     }
