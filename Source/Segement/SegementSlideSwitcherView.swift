@@ -13,30 +13,89 @@ public enum SwitcherType {
     case segement
 }
 
+protocol SwitcherTitleProtocol {
+    var currentTitle: String { get }
+}
+
+public struct BaseTitleModel: SwitcherTitleProtocol {
+    private let title: String
+    public init (title: String) {
+        self.title = title
+    }
+
+    public var currentTitle: String {
+        return title
+    }
+}
+
 public protocol SegementSlideSwitcherViewDelegate: class {
-    var titlesInSegementSlideSwitcherView: [String] { get }
+    var titlesInSegementSlideSwitcherView: [BaseTitleModel] { get }
     
     func segementSwitcherView(_ segementSlideSwitcherView: SegementSlideSwitcherView, didSelectAtIndex index: Int, animated: Bool)
     func segementSwitcherView(_ segementSlideSwitcherView: SegementSlideSwitcherView, showBadgeAtIndex index: Int) -> BadgeType
+    func segementButtonView(_ segementSlideSwitcherView: SegementSlideSwitcherView, showBadgeAtIndex index: Int) -> UIView
 }
 
-public class SegementSlideSwitcherView: UIView {
+extension SegementSlideContentDelegate {
+    public func segementButtonView(_ segementSlideSwitcherView: SegementSlideSwitcherView, showBadgeAtIndex index: Int) -> UIView {
+        return UIButton(type: .custom)
+    }
+}
+
+public protocol SlideSwitcherViewProtocol: UIView {
+    var selectedIndex: Int? { get set }
+    var gestureRecognizersInScrollView: [UIGestureRecognizer]? { get }
+    var delegate: SegementSlideSwitcherViewDelegate? { get set }
+    /// you must call `reloadData()` to make it work, after the assignment.
+    var config: SegementSlideSwitcherConfig { get set }
+
+    func reloadData()
+    func reloadBadges()
+    func selectSwitcher(at index: Int, animated: Bool)
+}
+
+public class SegementSlideSwitcherView: UIView, SlideSwitcherViewProtocol {
     
     private let scrollView = UIScrollView()
     private let indicatorView = UIView()
     private var titleButtons: [UIButton] = []
-    private var initSelectedIndex: Int?
-    private var innerConfig: SegementSlideSwitcherConfig = SegementSlideSwitcherConfig.shared
-    internal var gestureRecognizersInScrollView: [UIGestureRecognizer]? {
+
+    public var gestureRecognizersInScrollView: [UIGestureRecognizer]? {
         return scrollView.gestureRecognizers
     }
-    
-    public private(set) var selectedIndex: Int?
-    public weak var delegate: SegementSlideSwitcherViewDelegate?
-    
-    /// you must call `reloadData()` to make it work, after the assignment.
-    public var config: SegementSlideSwitcherConfig = SegementSlideSwitcherConfig.shared
-    
+
+    private var initSelectedIndex: Int?
+    public var selectedIndex: Int? {
+        get {
+            return initSelectedIndex
+        }
+
+        set {
+            initSelectedIndex = newValue
+        }
+    }
+
+    private weak var innerDelegate: SegementSlideSwitcherViewDelegate?
+    public var delegate: SegementSlideSwitcherViewDelegate? {
+        get {
+            return innerDelegate
+        }
+        set {
+            innerDelegate = newValue
+        }
+    }
+
+    private var innerConfig: SegementSlideSwitcherConfig = SegementSlideSwitcherConfig.shared
+    public var config: SegementSlideSwitcherConfig {
+        get {
+            return innerConfig
+        }
+
+        set {
+            innerConfig = newValue
+        }
+    }
+
     public override var intrinsicContentSize: CGSize {
         return scrollView.contentSize
     }
@@ -86,14 +145,14 @@ public class SegementSlideSwitcherView: UIView {
         indicatorView.frame = .zero
         scrollView.isScrollEnabled = innerConfig.type == .segement
         innerConfig = config
-        guard let titles = delegate?.titlesInSegementSlideSwitcherView else { return }
-        guard !titles.isEmpty else { return }
-        for (index, title) in titles.enumerated() {
+        guard let titleModels = delegate?.titlesInSegementSlideSwitcherView else { return }
+        guard !titleModels.isEmpty else { return }
+        for (index, model) in titleModels.enumerated() {
             let button = UIButton(type: .custom)
             button.clipsToBounds = false
             button.titleLabel?.font = innerConfig.normalTitleFont
             button.backgroundColor = .clear
-            button.setTitle(title, for: .normal)
+            button.setTitle(model.currentTitle, for: .normal)
             button.tag = index
             button.setTitleColor(innerConfig.normalTitleColor, for: .normal)
             button.addTarget(self, action: #selector(didClickTitleButton), for: .touchUpInside)

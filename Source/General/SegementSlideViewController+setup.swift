@@ -22,10 +22,15 @@ extension SegementSlideViewController {
         observeScrollViewContentOffset()
         observeWillClearAllReusableViewControllersNotification()
     }
+
+    // override to custom switchView
+    open func createSegementSlideSwitcherView () {
+        segementSlideSwitcherView = SegementSlideSwitcherView()
+    }
     
     private func setupSegementSlideViews() {
         segementSlideHeaderView = SegementSlideHeaderView()
-        segementSlideSwitcherView = SegementSlideSwitcherView()
+        createSegementSlideSwitcherView()
         segementSlideContentView = SegementSlideContentView()
         var gestureRecognizers: [UIGestureRecognizer] = []
         if let gestureRecognizersInScrollView = segementSlideSwitcherView.gestureRecognizersInScrollView {

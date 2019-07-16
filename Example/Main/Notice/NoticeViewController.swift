@@ -122,7 +122,7 @@ class NoticeViewController: UIViewController {
 
 extension NoticeViewController: SegementSlideSwitcherViewDelegate {
     
-    public var titlesInSegementSlideSwitcherView: [String] {
+    public var titlesInSegementSlideSwitcherView: [BaseTitleModel] {
         return DataManager.shared.noticeLanguageTitles
     }
     

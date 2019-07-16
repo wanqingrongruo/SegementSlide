@@ -39,8 +39,8 @@ class ExploreViewController: BaseSegementSlideViewController {
         return config
     }
     
-    override var titlesInSwitcher: [String] {
-        return ["全部", "打卡", "活动", "讨论", "调查", "通知"]//DataManager.shared.exploreLanguageTitles
+    override var titlesInSwitcher: [BaseTitleModel] {
+        return [BaseTitleModel(title: "全部"), BaseTitleModel(title: "打卡"), BaseTitleModel(title: "活动"), BaseTitleModel(title: "讨论"), BaseTitleModel(title: "调查"), BaseTitleModel(title: "通知")]//DataManager.shared.exploreLanguageTitles
     }
     
     override func showBadgeInSwitcher(at index: Int) -> BadgeType {

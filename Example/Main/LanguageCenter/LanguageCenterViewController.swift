@@ -65,7 +65,7 @@ class LanguageCenterViewController: BaseTransparentSlideViewController {
         return config
     }
     
-    override var titlesInSwitcher: [String] {
+    override var titlesInSwitcher: [BaseTitleModel] {
         guard let _ = language else {
             return []
         }

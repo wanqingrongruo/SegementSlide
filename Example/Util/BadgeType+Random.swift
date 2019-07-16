@@ -66,7 +66,7 @@ extension BadgeType: CaseIterable {
         return .custom(attributedString, height, nil)
     }
     
-    private static var richTextNewMark: BadgeType {
+    public static var richTextNewMark: BadgeType {
         let height: CGFloat = ConfigManager.shared.switcherConfig.badgeHeightForCustomType
         let font = UIFont.systemFont(ofSize: 8, weight: .medium)
         

@@ -30,7 +30,7 @@ class PostViewController: BaseSegementSlideViewController {
         return config
     }
     
-    override var titlesInSwitcher: [String] {
+    override var titlesInSwitcher: [BaseTitleModel] {
         return DataManager.shared.postLanguageTitles
     }
     

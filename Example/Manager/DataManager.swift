@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SegementSlide
 
 struct Language {
     let id: Int
@@ -32,27 +33,27 @@ class DataManager {
         Language(id: 11, title: "PHP", icon: UIImage(named: "PHP")!, summary: "PHP: Hypertext Preprocessor (or simply PHP) is a server-side scripting language designed for Web development, and also used as a general-purpose programming language.")
     ]
     
-    var allLanguageTitles: [String] {
-        return Array(languages.map({ $0.title }))
+    var allLanguageTitles: [BaseTitleModel] {
+        return Array(languages.map({ BaseTitleModel(title: $0.title) }))
     }
     
-    var homeLanguageTitles: [String] {
+    var homeLanguageTitles: [BaseTitleModel] {
         return Array(allLanguageTitles[0..<4])
     }
     
-    var exploreLanguageTitles: [String] {
+    var exploreLanguageTitles: [BaseTitleModel] {
         return allLanguageTitles
     }
     
-    var mineLanguageTitles: [String] {
+    var mineLanguageTitles: [BaseTitleModel] {
         return Array(allLanguageTitles[0..<3])
     }
     
-    var noticeLanguageTitles: [String] {
+    var noticeLanguageTitles: [BaseTitleModel] {
         return Array(allLanguageTitles[0..<2])
     }
     
-    var postLanguageTitles: [String] {
+    var postLanguageTitles: [BaseTitleModel] {
         return Array(allLanguageTitles[0..<3])
     }
     

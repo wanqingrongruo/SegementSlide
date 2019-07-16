@@ -18,7 +18,7 @@ open class SegementSlideViewController: UIViewController {
     internal var segementSlideScrollView: SegementSlideScrollView!
     internal var segementSlideHeaderView: SegementSlideHeaderView!
     internal var segementSlideContentView: SegementSlideContentView!
-    internal var segementSlideSwitcherView: SegementSlideSwitcherView!
+    internal var segementSlideSwitcherView: SlideSwitcherViewProtocol!
     internal var innerHeaderView: UIView?
     
     internal var safeAreaTopConstraint: NSLayoutConstraint?
@@ -81,7 +81,7 @@ open class SegementSlideViewController: UIViewController {
         return SegementSlideSwitcherConfig.shared
     }
     
-    open var titlesInSwitcher: [String] {
+    open var titlesInSwitcher: [BaseTitleModel] {
         #if DEBUG
         assert(false, "must override this variable")
         #endif

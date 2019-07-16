@@ -56,7 +56,7 @@ class MineViewController: BaseTransparentSlideViewController {
         return config
     }
     
-    override var titlesInSwitcher: [String] {
+    override var titlesInSwitcher: [BaseTitleModel] {
         return DataManager.shared.mineLanguageTitles
     }
     

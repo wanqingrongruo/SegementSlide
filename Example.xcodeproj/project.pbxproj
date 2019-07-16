@@ -38,6 +38,7 @@
 		80B6C40521C2A600007C958F /* bg_computer.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B6C40421C2A600007C958F /* bg_computer.png */; };
 		80F3D6B821D789D6005D649A /* BadgeType+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3D6B721D789D6005D649A /* BadgeType+Random.swift */; };
 		D64AC4F1E62901A0FFBEDEB2 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8347D796F78F8EF653440011 /* Pods_ExampleTests.framework */; };
+		E04B2F4422DC862F00F464E4 /* CustomSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B2F4322DC862F00F464E4 /* CustomSwitchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		8347D796F78F8EF653440011 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFDF05ED108B36DDF0BD851 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		DFC82FD65CC44CDF1D54158C /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E04B2F4322DC862F00F464E4 /* CustomSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitchView.swift; sourceTree = "<group>"; };
 		EE8FDCEB76AF4FD09D2868F3 /* Pods-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleTests/Pods-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +254,7 @@
 				802DF82C2225326D00533012 /* BaseTableViewController.swift */,
 				80B6C3FA21C295ED007C958F /* BaseSegementSlideViewController.swift */,
 				805C1D9821C7C86A00991D07 /* BaseTransparentSlideViewController.swift */,
+				E04B2F4322DC862F00F464E4 /* CustomSwitchView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				8079920F221958C300682690 /* PostViewController.swift in Sources */,
 				80B6C3ED21C1FAB5007C958F /* ContentViewController.swift in Sources */,
 				80F3D6B821D789D6005D649A /* BadgeType+Random.swift in Sources */,
+				E04B2F4422DC862F00F464E4 /* CustomSwitchView.swift in Sources */,
 				8099833C2249306E00C36D4B /* ConfigManager.swift in Sources */,
 				805C1D9921C7C86A00991D07 /* BaseTransparentSlideViewController.swift in Sources */,
 				80B6C3FE21C29EEA007C958F /* DataManager.swift in Sources */,

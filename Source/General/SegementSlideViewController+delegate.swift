@@ -20,12 +20,11 @@ extension SegementSlideViewController: UIScrollViewDelegate {
         scrollView.contentOffset.y = 0
         return true
     }
-    
 }
 
 extension SegementSlideViewController: SegementSlideSwitcherViewDelegate {
     
-    public var titlesInSegementSlideSwitcherView: [String] {
+    public var titlesInSegementSlideSwitcherView: [BaseTitleModel] {
         return titlesInSwitcher
     }
     
