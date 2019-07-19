@@ -26,21 +26,23 @@ public struct SegementSlideSwitcherConfig {
     public var badgeHeightForCountType: CGFloat
     public var badgeHeightForCustomType: CGFloat
     public var badgeFontForCountType: UIFont
+    public var badgeBackgroundColor: UIColor
     
     public init(type: SwitcherType = .segement,
-                horizontalMargin: CGFloat = 16,
-                horizontalSpace: CGFloat = 32,
-                normalTitleFont: UIFont = UIFont.systemFont(ofSize: 15),
-                selectedTitleFont: UIFont = UIFont.systemFont(ofSize: 15, weight: .medium),
+                horizontalMargin: CGFloat = 20,
+                horizontalSpace: CGFloat = 26,
+                normalTitleFont: UIFont = UIFont.systemFont(ofSize: 12, weight: .medium),
+                selectedTitleFont: UIFont = UIFont.systemFont(ofSize: 14, weight: .semibold),
                 normalTitleColor: UIColor = UIColor.gray,
                 selectedTitleColor: UIColor = UIColor.darkGray,
-                indicatorWidth: CGFloat = 30,
+                indicatorWidth: CGFloat = 16,
                 indicatorHeight: CGFloat = 2,
                 indicatorColor: UIColor = UIColor.darkGray,
                 badgeHeightForPointType: CGFloat = 9,
                 badgeHeightForCountType: CGFloat = 15,
-                badgeHeightForCustomType: CGFloat = 14,
-                badgeFontForCountType: UIFont = UIFont.systemFont(ofSize: 10, weight: .regular)) {
+                badgeHeightForCustomType: CGFloat = 12,
+                badgeFontForCountType: UIFont = UIFont.systemFont(ofSize: 10, weight: .regular),
+                badgeBackgroundColor: UIColor = UIColor.red) {
         self.type = type
         self.horizontalMargin = horizontalMargin
         self.horizontalSpace = horizontalSpace
@@ -55,6 +57,7 @@ public struct SegementSlideSwitcherConfig {
         self.badgeHeightForCountType = badgeHeightForCountType
         self.badgeHeightForCustomType = badgeHeightForCustomType
         self.badgeFontForCountType = badgeFontForCountType
+        self.badgeBackgroundColor = badgeBackgroundColor
     }
     
 }

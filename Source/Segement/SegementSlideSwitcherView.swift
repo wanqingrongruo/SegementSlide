@@ -201,6 +201,7 @@ public class SegementSlideSwitcherView: UIView, SlideSwitcherViewProtocol {
             case .custom:
                 titleButton.badge.height = innerConfig.badgeHeightForCustomType
                 titleButton.badge.offset = CGPoint(x: width/2+titleButton.badge.height/2, y: -height/2)
+                titleButton.badge.badgeViewBackgroundColor = innerConfig.badgeBackgroundColor
             }
         }
     }

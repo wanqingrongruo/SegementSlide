@@ -18,7 +18,7 @@ open class SegementSlideViewController: UIViewController {
     internal var segementSlideScrollView: SegementSlideScrollView!
     internal var segementSlideHeaderView: SegementSlideHeaderView!
     internal var segementSlideContentView: SegementSlideContentView!
-    internal var segementSlideSwitcherView: SlideSwitcherViewProtocol!
+    public var segementSlideSwitcherView: SlideSwitcherViewProtocol!
     internal var innerHeaderView: UIView?
     
     internal var safeAreaTopConstraint: NSLayoutConstraint?

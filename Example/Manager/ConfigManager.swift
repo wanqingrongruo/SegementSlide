@@ -15,6 +15,6 @@ class ConfigManager {
     let switcherConfig: SegementSlideSwitcherConfig
     
     init() {
-        switcherConfig = SegementSlideSwitcherConfig(normalTitleColor: UIColor.gray, selectedTitleColor: UIColor.darkGray, indicatorColor: UIColor.darkGray, badgeHeightForPointType: 9, badgeHeightForCountType: 15, badgeHeightForCustomType: 14)
+        switcherConfig = SegementSlideSwitcherConfig(normalTitleColor: UIColor.gray, selectedTitleColor: UIColor.darkGray, indicatorColor: UIColor.red, badgeHeightForPointType: 9, badgeHeightForCountType: 15, badgeHeightForCustomType: 14)
     }
 }

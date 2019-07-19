@@ -80,7 +80,7 @@ extension BadgeType: CaseIterable {
         let baselineOffset = descender+(lineHeight-font.lineHeight)/2-font.descender
         
         let spaceString = NSMutableAttributedString(string: " ", attributes: [NSAttributedString.Key.baselineOffset: 0, NSAttributedString.Key.paragraphStyle: paragraphStyle])
-        let contentString = NSMutableAttributedString(string: "NEW", attributes: [NSAttributedString.Key.baselineOffset: baselineOffset, NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        let contentString = NSMutableAttributedString(string: "进行中", attributes: [NSAttributedString.Key.baselineOffset: baselineOffset, NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
         let attributedString = NSMutableAttributedString()
         attributedString.append(spaceString)

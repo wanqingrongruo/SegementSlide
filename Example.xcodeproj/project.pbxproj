@@ -39,6 +39,7 @@
 		80F3D6B821D789D6005D649A /* BadgeType+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3D6B721D789D6005D649A /* BadgeType+Random.swift */; };
 		D64AC4F1E62901A0FFBEDEB2 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8347D796F78F8EF653440011 /* Pods_ExampleTests.framework */; };
 		E04B2F4422DC862F00F464E4 /* CustomSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B2F4322DC862F00F464E4 /* CustomSwitchView.swift */; };
+		E069CB5422E03EAB003FDAD4 /* BubbleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E069CB5322E03EAA003FDAD4 /* BubbleLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		9BFDF05ED108B36DDF0BD851 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		DFC82FD65CC44CDF1D54158C /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E04B2F4322DC862F00F464E4 /* CustomSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitchView.swift; sourceTree = "<group>"; };
+		E069CB5322E03EAA003FDAD4 /* BubbleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleLayer.swift; sourceTree = "<group>"; };
 		EE8FDCEB76AF4FD09D2868F3 /* Pods-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleTests/Pods-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +257,7 @@
 				80B6C3FA21C295ED007C958F /* BaseSegementSlideViewController.swift */,
 				805C1D9821C7C86A00991D07 /* BaseTransparentSlideViewController.swift */,
 				E04B2F4322DC862F00F464E4 /* CustomSwitchView.swift */,
+				E069CB5322E03EAA003FDAD4 /* BubbleLayer.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				807A36DF21C359D3004675BC /* AppManager.swift in Sources */,
 				804CC4DC21C1532F007EEBF8 /* ExploreViewController.swift in Sources */,
 				806518D221F309A00036FF5F /* ContentOptionalViewController.swift in Sources */,
+				E069CB5422E03EAB003FDAD4 /* BubbleLayer.swift in Sources */,
 				80B6C3FB21C295ED007C958F /* BaseSegementSlideViewController.swift in Sources */,
 				804CC4DE21C15339007EEBF8 /* MineViewController.swift in Sources */,
 			);

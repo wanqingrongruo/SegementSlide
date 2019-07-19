@@ -23,8 +23,8 @@ extension SegementSlideViewController {
         observeWillClearAllReusableViewControllersNotification()
     }
 
-    // override to custom switchView
-    open func createSegementSlideSwitcherView () {
+    // override to custom switchView, but must init segementSlideSwitcherView
+    @objc open func createSegementSlideSwitcherView () {
         segementSlideSwitcherView = SegementSlideSwitcherView()
     }
     

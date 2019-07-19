@@ -49,6 +49,20 @@ class MineViewController: BaseTransparentSlideViewController {
         headerView.heightAnchor.constraint(equalToConstant: headerHeight).isActive = true
         return headerView
     }
+
+//    override func scrollViewDidScroll(_ scrollView: UIScrollView, isParent: Bool) {
+//        guard !isParent else { return }
+//        guard let navigationController = navigationController else { return }
+//        let translationY = -scrollView.panGestureRecognizer.translation(in: scrollView).y
+//        if translationY > 0 {
+//            guard !navigationController.isNavigationBarHidden else { return }
+//            navigationController.setNavigationBarHidden(true, animated: true)
+//        } else {
+//            guard !scrollView.isTracking else { return }
+//            guard navigationController.isNavigationBarHidden else { return }
+//            navigationController.setNavigationBarHidden(false, animated: true)
+//        }
+//    }
     
     override var switcherConfig: SegementSlideSwitcherConfig {
         var config = super.switcherConfig
