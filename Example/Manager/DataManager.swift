@@ -45,7 +45,7 @@ class DataManager {
     }
     
     var interestLanguageTitles: [String] {
-        return allLanguageTitles
+        return postLanguageTitles
     }
     
     var mineLanguageTitles: [String] {

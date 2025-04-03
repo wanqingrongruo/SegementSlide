@@ -19,7 +19,9 @@ open class SegementSlideViewController: UIViewController {
     public internal(set) var headerView: SegementSlideHeaderView!
     public internal(set) var contentView: SegementSlideContentView!
     public internal(set) var switcherView: SegementSlideSwitcherDelegate!
+    public internal(set) var footerView: SegmentSlideFooterView!
     internal var innerHeaderView: UIView?
+    internal var innerFooterView: UIView?
     
     internal var safeAreaTopConstraint: NSLayoutConstraint?
     internal var parentKeyValueObservation: NSKeyValueObservation?
@@ -41,7 +43,9 @@ open class SegementSlideViewController: UIViewController {
     public var switcherHeight: CGFloat {
         return switcherView.ssDataSource?.height ?? 44
     }
+  
     public var contentViewHeight: CGFloat {
+        print("sceentHeigth: \(UIScreen.main.bounds.size.height), view.bounds.height: \(view.bounds.height), topLayoutLength: \(topLayoutLength), switcherHeight:\(switcherHeight)")
         return view.bounds.height-topLayoutLength-switcherHeight
     }
     public var currentIndex: Int? {
@@ -77,6 +81,10 @@ open class SegementSlideViewController: UIViewController {
         }
     }
     
+    open func segementSlideFooterView() -> UIView? {
+        return nil
+    }
+    
     open func segementSlideSwitcherView() -> SegementSlideSwitcherDelegate {
         #if DEBUG
         assert(false, "must override this variable")
@@ -104,7 +112,11 @@ open class SegementSlideViewController: UIViewController {
     }
     
     open func setupSwitcher() {
-
+        
+    }
+    
+    open func setupFooter() {
+        innerFooterView = segementSlideFooterView()
     }
     
     open func setupContent() {
@@ -130,6 +142,7 @@ open class SegementSlideViewController: UIViewController {
         setupBounces()
         setupHeader()
         setupSwitcher()
+        setupFooter()
         setupContent()
         contentView.reloadData()
         switcherView.reloadData()
@@ -146,6 +159,11 @@ open class SegementSlideViewController: UIViewController {
     public func reloadSwitcher() {
         setupSwitcher()
         switcherView.reloadData()
+        layoutSegementSlideScrollView()
+    }
+    
+    public func reloadFooter() {
+        setupFooter()
         layoutSegementSlideScrollView()
     }
     

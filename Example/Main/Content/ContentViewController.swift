@@ -38,8 +38,8 @@ class ContentViewController: BaseTableViewController, SegementSlideContentScroll
         let refreshHeader = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(refreshAction))
         refreshHeader?.lastUpdatedTimeLabel.isHidden = true
         tableView.mj_header = refreshHeader
-        tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
-        tableView.mj_footer.isHidden = true
+//        tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreAction))
+//        tableView.mj_footer.isHidden = true
         DispatchQueue.main.async {
             let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
             hud.offset = CGPoint(x: 0, y: -self.view.bounds.height/5)
@@ -53,9 +53,9 @@ class ContentViewController: BaseTableViewController, SegementSlideContentScroll
     
     @objc
     private func refreshAction() {
-        if tableView.mj_footer.isRefreshing {
-            tableView.mj_footer.endRefreshing()
-        }
+//        if tableView.mj_footer.isRefreshing {
+//            tableView.mj_footer.endRefreshing()
+//        }
         DispatchQueue.global().asyncAfter(deadline: .now()+Double.random(in: 0..<2)) {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {
@@ -65,7 +65,7 @@ class ContentViewController: BaseTableViewController, SegementSlideContentScroll
                 self.languages.append(contentsOf: DataManager.shared.randomLanguages)
                 self.tableView.mj_header.endRefreshing()
                 self.tableView.reloadData()
-                self.tableView.mj_footer.isHidden = false
+//                self.tableView.mj_footer.isHidden = false
                 MBProgressHUD.hide(for: self.view, animated: true)
                 self.refreshHandler?()
             }
@@ -74,20 +74,20 @@ class ContentViewController: BaseTableViewController, SegementSlideContentScroll
     
     @objc
     private func loadMoreAction() {
-        guard !tableView.mj_header.isRefreshing else {
-            tableView.mj_footer.endRefreshing()
-            return
-        }
-        DispatchQueue.global().asyncAfter(deadline: .now()+Double.random(in: 0..<2)) {
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else {
-                    return
-                }
-                self.languages.append(contentsOf: DataManager.shared.randomLanguages)
-                self.tableView.mj_footer.endRefreshing()
-                self.tableView.reloadData()
-            }
-        }
+//        guard !tableView.mj_header.isRefreshing else {
+//            tableView.mj_footer.endRefreshing()
+//            return
+//        }
+//        DispatchQueue.global().asyncAfter(deadline: .now()+Double.random(in: 0..<2)) {
+//            DispatchQueue.main.async { [weak self] in
+//                guard let self = self else {
+//                    return
+//                }
+//                self.languages.append(contentsOf: DataManager.shared.randomLanguages)
+//                self.tableView.mj_footer.endRefreshing()
+//                self.tableView.reloadData()
+//            }
+//        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

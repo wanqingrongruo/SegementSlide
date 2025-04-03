@@ -17,6 +17,7 @@ extension SegementSlideViewController {
         setupSegementSlideViews()
         setupSegementSlideScrollView()
         setupSegementSlideHeaderView()
+        setupSegementSlideFooterView()
         setupSegementSlideContentView()
         setupSegementSlideSwitcherView()
         observeScrollViewContentOffset()
@@ -27,6 +28,7 @@ extension SegementSlideViewController {
         headerView = SegementSlideHeaderView()
         switcherView = segementSlideSwitcherView()
         contentView = SegementSlideContentView()
+        footerView = SegmentSlideFooterView()
         var gestureRecognizers: [UIGestureRecognizer] = []
         if let gestureRecognizersInScrollView = switcherView.ssScrollView.gestureRecognizers {
             gestureRecognizers.append(contentsOf: gestureRecognizersInScrollView)
@@ -35,6 +37,10 @@ extension SegementSlideViewController {
             gestureRecognizers.append(contentsOf: gestureRecognizersInScrollView)
         }
         scrollView = SegementSlideScrollView(otherGestureRecognizers: gestureRecognizers)
+    }
+    
+    private func setupSegementSlideFooterView() {
+        view.addSubview(footerView)
     }
     
     private func setupSegementSlideHeaderView() {
@@ -53,7 +59,10 @@ extension SegementSlideViewController {
     
     private func setupSegementSlideScrollView() {
         view.addSubview(scrollView)
-        scrollView.constraintToSuperview()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.topConstraint = scrollView.topAnchor.constraint(equalTo: view.topAnchor)
+        scrollView.leadingConstraint = scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        scrollView.trailingConstraint = scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         if #available(iOS 11.0, *) {
             scrollView.contentInsetAdjustmentBehavior = .never
         } else {
@@ -100,6 +109,13 @@ extension SegementSlideViewController {
             topLayoutLength = self.topLayoutLength
         }
         
+        let bottomLayoutLength: CGFloat
+        if edgesForExtendedLayout.contains(.bottom) {
+            bottomLayoutLength = 0
+        } else {
+            bottomLayoutLength = self.bottomLayoutLength
+        }
+        
         headerView.translatesAutoresizingMaskIntoConstraints = false
         if headerView.topConstraint == nil {
             headerView.topConstraint = headerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: topLayoutLength)
@@ -115,6 +131,30 @@ extension SegementSlideViewController {
             headerView.trailingConstraint = headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         }
         headerView.config(innerHeaderView, contentView: contentView)
+        
+        footerView.translatesAutoresizingMaskIntoConstraints = false
+        if footerView.topConstraint == nil {
+            footerView.topConstraint = footerView.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: topLayoutLength)
+        }
+        if footerView.leadingConstraint == nil {
+            footerView.leadingConstraint = footerView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        }
+        if footerView.trailingConstraint == nil {
+            footerView.trailingConstraint = footerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        }
+//        if footerView.heightConstraint == nil {
+//            footerView.heightConstraint = footerView.heightAnchor.constraint(equalToConstant: footerHeight)
+//        } else {
+//            if footerView.heightConstraint?.constant != footerHeight {
+//                footerView.heightConstraint?.constant = footerHeight
+//            }
+//        }
+        
+        if footerView.bottomConstraint == nil {
+            footerView.bottomConstraint = footerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottomLayoutLength)
+        }
+        
+        footerView.config(innerFooterView, contentView: contentView)
         
         switcherView.translatesAutoresizingMaskIntoConstraints = false
         if switcherView.topConstraint == nil {
@@ -156,17 +196,21 @@ extension SegementSlideViewController {
             contentView.trailingConstraint = contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         }
         if contentView.bottomConstraint == nil {
-            contentView.bottomConstraint = contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            contentView.bottomConstraint = contentView.bottomAnchor.constraint(equalTo: footerView.topAnchor)
         }
         
         headerView.layer.zPosition = -3
+        footerView.layer.zPosition = -3
         contentView.layer.zPosition = -2
         switcherView.layer.zPosition = -1
         
         headerView.layoutIfNeeded()
+        footerView.layoutIfNeeded()
         
         let innerHeaderHeight = headerView.frame.height
-        let contentSize = CGSize(width: view.bounds.width, height: topLayoutLength+innerHeaderHeight+switcherHeight+contentViewHeight+1)
+        let innerFooterHeight = footerView.frame.height
+        let contentSize = CGSize(width: view.bounds.width, height: topLayoutLength+innerHeaderHeight+switcherHeight+contentViewHeight+1-bottomLayoutLength-innerFooterHeight)
+        print("contentSize: \(contentSize.height), topLayoutLength:\(topLayoutLength), innerHeaderHeight:\(innerHeaderHeight), switcherHeight: \(switcherHeight), contentViewHeight:\(contentViewHeight), bottomLayoutLength: \(bottomLayoutLength), innerFooterHeight:\(innerFooterHeight)")
         if scrollView.contentSize != contentSize {
             scrollView.contentSize = contentSize
         }

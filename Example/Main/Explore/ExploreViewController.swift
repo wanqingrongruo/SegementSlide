@@ -13,6 +13,10 @@ import MJRefresh
 class ExploreViewController: BaseSegementSlideDefaultViewController {
 
     private var badges: [Int: BadgeType] = [:]
+    private var vc1: ContentViewController?
+    private var vc2: ContentViewController?
+    private var vc3: ContentViewController?
+    private var vc4: ContentViewController?
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -32,7 +36,14 @@ class ExploreViewController: BaseSegementSlideDefaultViewController {
         headerView.image = UIImage(named: "bg_working.png")
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.heightAnchor.constraint(equalToConstant: view.bounds.height/4).isActive = true
+        headerView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        headerView.addGestureRecognizer(tap)
         return headerView
+    }
+    
+    @objc func didTap() {
+        print("========did tap")
     }
     
     override var switcherConfig: SegementSlideDefaultSwitcherConfig {
@@ -55,8 +66,50 @@ class ExploreViewController: BaseSegementSlideDefaultViewController {
         }
     }
     
+    override func segementSlideFooterView() -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
+        view.backgroundColor = .red
+        view.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        return view
+    }
+    
     override func segementSlideContentViewController(at index: Int) -> SegementSlideContentScrollViewDelegate? {
-        return ContentViewController()
+        switch index {
+        case 0:
+            if let vc1 = vc1 {
+                return vc1
+            } else {
+                let vc = ContentViewController()
+                vc1 = vc
+                return vc
+            }
+        case 1:
+            if let vc1 = vc2 {
+                return vc1
+            } else {
+                let vc = ContentViewController()
+                vc2 = vc
+                return vc
+            }
+        case 2:
+            if let vc1 = vc3 {
+                return vc1
+            } else {
+                let vc = ContentViewController()
+                vc3 = vc
+                return vc
+            }
+        case 3:
+            if let vc1 = vc4 {
+                return vc1
+            } else {
+                let vc = ContentViewController()
+                vc4 = vc
+                return vc
+            }
+        default:
+            return ContentViewController()
+        }
     }
     
     override func viewDidLoad() {

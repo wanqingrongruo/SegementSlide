@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -46,6 +46,9 @@
 		80B6C40521C2A600007C958F /* bg_computer.png in Resources */ = {isa = PBXBuildFile; fileRef = 80B6C40421C2A600007C958F /* bg_computer.png */; };
 		80F3D6B821D789D6005D649A /* BadgeType+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F3D6B721D789D6005D649A /* BadgeType+Random.swift */; };
 		D64AC4F1E62901A0FFBEDEB2 /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8347D796F78F8EF653440011 /* Pods_ExampleTests.framework */; };
+		E0A974CA2D9E56BE007B3B96 /* BaseSegmentSlideAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A974C92D9E56BE007B3B96 /* BaseSegmentSlideAudioViewController.swift */; };
+		E0A974CC2D9E596C007B3B96 /* EmptySwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A974CB2D9E596C007B3B96 /* EmptySwitcherView.swift */; };
+		E0A974D02D9E5E12007B3B96 /* RecordSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A974CF2D9E5E12007B3B96 /* RecordSwitcherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,9 @@
 		8347D796F78F8EF653440011 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BFDF05ED108B36DDF0BD851 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		DFC82FD65CC44CDF1D54158C /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		E0A974C92D9E56BE007B3B96 /* BaseSegmentSlideAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSegmentSlideAudioViewController.swift; sourceTree = "<group>"; };
+		E0A974CB2D9E596C007B3B96 /* EmptySwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySwitcherView.swift; sourceTree = "<group>"; };
+		E0A974CF2D9E5E12007B3B96 /* RecordSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSwitcherView.swift; sourceTree = "<group>"; };
 		EE8FDCEB76AF4FD09D2868F3 /* Pods-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExampleTests/Pods-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -294,6 +300,9 @@
 				805C1D9821C7C86A00991D07 /* BaseTransparentSlideDefaultViewController.swift */,
 				8064F1A82466527A00C6A17A /* BaseSegementSlideCustomViewController.swift */,
 				8064F1AC2466599300C6A17A /* BaseTransparentSlideCustomViewController.swift */,
+				E0A974C92D9E56BE007B3B96 /* BaseSegmentSlideAudioViewController.swift */,
+				E0A974CB2D9E596C007B3B96 /* EmptySwitcherView.swift */,
+				E0A974CF2D9E5E12007B3B96 /* RecordSwitcherView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -518,6 +527,7 @@
 				8099833C2249306E00C36D4B /* ConfigManager.swift in Sources */,
 				8064F1AF24665A0A00C6A17A /* LanguageCenterViewController2.swift in Sources */,
 				805C1D9921C7C86A00991D07 /* BaseTransparentSlideDefaultViewController.swift in Sources */,
+				E0A974D02D9E5E12007B3B96 /* RecordSwitcherView.swift in Sources */,
 				80B6C3FE21C29EEA007C958F /* DataManager.swift in Sources */,
 				8064F19E24651BE800C6A17A /* InterestViewController.swift in Sources */,
 				806518D821F317050036FF5F /* UINavigationController+Swizzle.swift in Sources */,
@@ -535,8 +545,10 @@
 				80B6C3F921C2943E007C958F /* CALayer+Sketch.swift in Sources */,
 				807A36DF21C359D3004675BC /* AppManager.swift in Sources */,
 				8064F1A92466527A00C6A17A /* BaseSegementSlideCustomViewController.swift in Sources */,
+				E0A974CC2D9E596C007B3B96 /* EmptySwitcherView.swift in Sources */,
 				804CC4DC21C1532F007EEBF8 /* ExploreViewController.swift in Sources */,
 				8064F1AB246658A100C6A17A /* TransparentSlideCustomViewController.swift in Sources */,
+				E0A974CA2D9E56BE007B3B96 /* BaseSegmentSlideAudioViewController.swift in Sources */,
 				806518D221F309A00036FF5F /* ContentOptionalViewController.swift in Sources */,
 				80B6C3FB21C295ED007C958F /* BaseSegementSlideDefaultViewController.swift in Sources */,
 				804CC4DE21C15339007EEBF8 /* MineViewController.swift in Sources */,
@@ -699,9 +711,9 @@
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TAHA6X7BKU;
+				DEVELOPMENT_TEAM = 5NU9S58W2U;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -723,9 +735,9 @@
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TAHA6X7BKU;
+				DEVELOPMENT_TEAM = 5NU9S58W2U;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
